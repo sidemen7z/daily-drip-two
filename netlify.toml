@@ -1,0 +1,15 @@
+# Daily Drip Cafe — static site, no build step.
+[build]
+  publish = "."
+  command = ""
+
+# Cache food photos + films for a year (filenames are content-hashed).
+[[headers]]
+  for = "/menu_images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/images/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"

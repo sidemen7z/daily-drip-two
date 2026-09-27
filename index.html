@@ -34,6 +34,14 @@ img,video{max-width:100%}img{display:block}a{color:inherit;text-decoration:none}
 .hdr--solid .hdr__nav a{color:var(--text)}
 .hdr__nav a:hover,.hdr__nav a.on{opacity:1;font-weight:700}
 .hdr__cta{display:flex;gap:10px;align-items:center}
+.hdr__search{display:flex;align-items:center}
+.hdr__search input{border:1.5px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;border-radius:100px;padding:9px 16px;font-size:13px;width:168px;outline:none;font-family:inherit}
+.hdr__search input::placeholder{color:rgba(255,255,255,.6)}
+.hdr--solid .hdr__search input{border-color:var(--border);background:#fff;color:var(--text)}
+.hdr--solid .hdr__search input::placeholder{color:var(--muted)}
+.callbtn{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
+.hdr--solid .callbtn{border-color:var(--text);color:var(--text)}
+@media(max-width:1220px){.hdr__search{display:none}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 28px;border-radius:100px;font-size:14px;font-weight:600;transition:var(--t);white-space:nowrap}
 .btn--peach{background:var(--blush);color:#1d1715}.btn--peach:hover{background:#fff;transform:translateY(-2px)}
 .btn--outline{border:1.5px solid rgba(255,255,255,.7);color:#fff}.btn--outline:hover{background:rgba(255,255,255,.12)}
@@ -57,14 +65,21 @@ img,video{max-width:100%}img{display:block}a{color:inherit;text-decoration:none}
 .usp{display:flex;gap:10px;align-items:flex-start;font-size:12px;line-height:1.4;color:rgba(255,255,255,.85)}
 .usp b{display:block;font-size:13px;color:#fff}.usp svg{width:26px;height:26px;stroke:var(--blush);fill:none;stroke-width:1.6;flex-shrink:0}
 /* CATEGORY STRIP */
+/* CATEGORY STRIP — Skanvi-style carousel, stacked cells */
 .strip{background:var(--cream);padding:18px 12px 6px}
-.strip__bar{background:#fdf3ea;border:1px solid var(--border);border-radius:22px;max-width:1500px;margin:0 auto;padding:18px 20px;display:flex;gap:14px;justify-content:space-between;scrollbar-width:none}
+.strip__wrap{position:relative;max-width:1500px;margin:0 auto}
+.strip__bar{background:#fdf3ea;border:1px solid var(--border);border-radius:22px;padding:18px 52px;display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;scroll-behavior:smooth}
 .strip__bar::-webkit-scrollbar{display:none}
-.cat{flex:1 1 0;min-width:0;display:flex;align-items:center;gap:10px}
-.cat img{width:58px;height:58px;border-radius:50%;object-fit:cover;background:var(--cream2);flex-shrink:0}
-.cat b{display:block;font-size:11px;line-height:1.3;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.cat span{font-size:16px}
+.cat{flex:0 0 auto;width:120px;text-align:center}
+.cat img{width:76px;height:76px;border-radius:50%;object-fit:cover;background:var(--cream2);margin:0 auto 8px}
+.cat b{display:block;font-size:11.5px;line-height:1.3;min-height:2.6em;font-weight:600}
+.cat span{font-size:15px}
+.strip__arrow{position:absolute;top:50%;transform:translateY(-50%);width:34px;height:34px;border-radius:50%;background:#fff;border:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.12);z-index:2;font-size:16px;line-height:1;color:var(--text)}
+.strip__arrow--l{left:10px}.strip__arrow--r{right:10px}
+.strip__arrow[hidden]{display:none}
 /* SEASONAL — forest */
-.season{background:var(--forest);color:#fff;padding:56px 0}
+.season{background:linear-gradient(180deg,#8fb5a8,#7ba898);color:#fff;padding:56px 0}
+.season__eyebrow{color:#12332b}
 .season__grid{display:grid;grid-template-columns:300px 1fr 340px;gap:26px;align-items:start}
 .season__eyebrow{font-size:10px;letter-spacing:3px;color:var(--blush);font-weight:700}
 .season__title{font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,54px);line-height:1.02;margin:10px 0 12px}
@@ -107,7 +122,7 @@ img,video{max-width:100%}img{display:block}a{color:inherit;text-decoration:none}
 .lightbox.open{display:flex}.lightbox img{max-width:92vw;max-height:84vh;border-radius:12px}
 .mmenu{position:fixed;inset:0;background:#fff;z-index:90;transform:translateX(100%);transition:transform .35s ease;display:flex;flex-direction:column;padding:20px}
 .mmenu.open{transform:none}.mmenu a{padding:14px 0;text-align:center;font-weight:800;letter-spacing:2px;font-size:14px;text-transform:uppercase;border-bottom:1px solid var(--border)}
-@media(max-width:1080px){.hdr__nav{display:none}.burger{display:flex}.strip__bar{flex-wrap:wrap}.cat{flex:1 1 28%;min-width:140px}.season__grid{grid-template-columns:1fr}.spec-grid{grid-template-columns:1fr 1fr}.space__grid{grid-template-columns:1fr}.fav-grid{grid-template-columns:1fr 1fr}.gal{grid-template-columns:1fr 1fr}.loc__grid{grid-template-columns:1fr}.hero__usps{grid-template-columns:1fr 1fr}}
+@media(max-width:1080px){.hdr__nav{display:none}.burger{display:flex}.strip__bar{padding:14px 46px}.cat{width:106px}.season__grid{grid-template-columns:1fr}.spec-grid{grid-template-columns:1fr 1fr}.space__grid{grid-template-columns:1fr}.fav-grid{grid-template-columns:1fr 1fr}.gal{grid-template-columns:1fr 1fr}.loc__grid{grid-template-columns:1fr}.hero__usps{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.wrap{padding:0 18px}.hero__grid{padding:120px 20px 0}.spec-grid{grid-template-columns:1fr 1fr}.fav-grid{grid-template-columns:1fr 1fr}.fav img{height:150px}.films{grid-template-columns:1fr}.space__txt{padding:36px 24px}}
 </style>
 </head>
@@ -120,6 +135,8 @@ img,video{max-width:100%}img{display:block}a{color:inherit;text-decoration:none}
 <a href="#" class="on">Home</a><a href="menu.html">Menu</a><a href="#story">Our Story</a><a href="#gallery">Gallery</a><a href="#visit">Locations</a><a href="#contact">Contact</a>
 </nav>
 <div class="hdr__cta">
+<form class="hdr__search" onsubmit="return dishSearch(event)"><input id="hdrQ" type="search" placeholder="Search dishes…" aria-label="Search dishes"></form>
+<a class="callbtn" href="tel:+917738314007" aria-label="Call now">✆</a>
 <a href="https://wa.me/917738314007?text=Hi!%20I%20want%20to%20reserve%20a%20table." target="_blank" rel="noopener" class="btn btn--peach" style="padding:11px 24px">Reserve a Table →</a>
 <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
 </div>
@@ -158,7 +175,9 @@ img,video{max-width:100%}img{display:block}a{color:inherit;text-decoration:none}
 
 <!-- CATEGORY BAKERY STRIP -->
 <div class="strip">
-<div class="strip__bar">
+<div class="strip__wrap">
+<button class="strip__arrow strip__arrow--l" id="stripL" aria-label="Scroll categories left">‹</button>
+<div class="strip__bar" id="stripBar">
 <a class="cat" href="menu.html"><img src="menu_images/01_butter_croissant.webp" alt="Morning Bakery"><div><b>Morning Bakery</b><span>→</span></div></a>
 <a class="cat" href="menu.html"><img src="menu_images/06_eggs_your_way.webp" alt="Breakfast"><div><b>Breakfast</b><span>→</span></div></a>
 <a class="cat" href="menu.html"><img src="menu_images/Margherita_pizza_on_stone_table_20260927171635.webp" alt="Artisan Pizzas"><div><b>Artisan Pizzas</b><span>→</span></div></a>
@@ -169,6 +188,8 @@ img,video{max-width:100%}img{display:block}a{color:inherit;text-decoration:none}
 <a class="cat" href="menu.html"><img src="menu_images/Creamy_rigatoni_Alfredo_with_mus_20260927171635.webp" alt="Pasta"><div><b>Pasta &amp; Bowls</b><span>→</span></div></a>
 <a class="cat" href="menu.html"><img src="menu_images/Chicken_schnitzel_with_herb_butter_20260927171635.webp" alt="Specials"><div><b>House Specialties</b><span>→</span></div></a>
 <a class="cat" href="menu.html"><img src="menu_images/Burnt_Basque_cheesecake_served_20260927171635.webp" alt="Desserts"><div><b>Desserts</b><span>→</span></div></a>
+</div>
+<button class="strip__arrow strip__arrow--r" id="stripR" aria-label="Scroll categories right">›</button>
 </div>
 </div>
 
@@ -278,6 +299,8 @@ img,video{max-width:100%}img{display:block}a{color:inherit;text-decoration:none}
 var cur=0;var vids=[document.getElementById('hv0'),document.getElementById('hv1')];
 function show(i){cur=(i+2)%2;vids.forEach(function(v,k){v.classList.toggle('active',k===cur);if(k===cur){v.play&&v.play().catch(function(){});}else{v.pause&&v.pause();}});}
 setInterval(function(){show(cur+1)},9000);
+function dishSearch(e){e.preventDefault();var q=document.getElementById('hdrQ').value.trim();location.href='menu.html'+(q?'?q='+encodeURIComponent(q):'');return false}
+(function(){var bar=document.getElementById('stripBar'),l=document.getElementById('stripL'),r=document.getElementById('stripR');if(!bar)return;l.addEventListener('click',function(){bar.scrollBy({left:-360,behavior:'smooth'})});r.addEventListener('click',function(){bar.scrollBy({left:360,behavior:'smooth'})});function tog(){var over=bar.scrollWidth>bar.clientWidth+4;if(!over){l.hidden=r.hidden=true;return}l.hidden=bar.scrollLeft<=4;r.hidden=bar.scrollLeft>=bar.scrollWidth-bar.clientWidth-4}bar.addEventListener('scroll',tog,{passive:true});window.addEventListener('resize',tog);tog();})();
 document.getElementById('burger').addEventListener('click',function(){document.getElementById('mmenu').classList.add('open')});
 document.getElementById('mclose').addEventListener('click',function(){document.getElementById('mmenu').classList.remove('open')});
 document.querySelectorAll('#mmenu a').forEach(function(a){a.addEventListener('click',function(){document.getElementById('mmenu').classList.remove('open')})});

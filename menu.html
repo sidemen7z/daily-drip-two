@@ -243,6 +243,7 @@ function render(){
   moreBtn.textContent = 'Show More (' + (list.length - slice.length) + ' remaining)';
 }
 render();
+try{var qq=new URLSearchParams(location.search).get('q');if(qq){searchBox.value=qq;shown=PAGE;render();}}catch(e){}
 if('IntersectionObserver' in window){
   var v = document.getElementById('menuVideo');
   new IntersectionObserver(function(es){es.forEach(function(en){ if(en.isIntersecting){v.play&&v.play().catch(function(){});} else {v.pause&&v.pause();} });},{threshold:0.05}).observe(v);

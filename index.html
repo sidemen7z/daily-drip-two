@@ -34,14 +34,6 @@ img,video{max-width:100%}img{display:block}a{color:inherit;text-decoration:none}
 .hdr--solid .hdr__nav a{color:var(--text)}
 .hdr__nav a:hover,.hdr__nav a.on{opacity:1;font-weight:700}
 .hdr__cta{display:flex;gap:10px;align-items:center}
-.hdr__search{display:flex;align-items:center}
-.hdr__search input{border:1.5px solid rgba(255,255,255,.35);background:rgba(255,255,255,.12);color:#fff;border-radius:100px;padding:9px 16px;font-size:13px;width:168px;outline:none;font-family:inherit}
-.hdr__search input::placeholder{color:rgba(255,255,255,.6)}
-.hdr--solid .hdr__search input{border-color:var(--border);background:#fff;color:var(--text)}
-.hdr--solid .hdr__search input::placeholder{color:var(--muted)}
-.callbtn{width:40px;height:40px;border-radius:50%;border:1.5px solid rgba(255,255,255,.5);color:#fff;display:inline-flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0}
-.hdr--solid .callbtn{border-color:var(--text);color:var(--text)}
-@media(max-width:1220px){.hdr__search{display:none}}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 28px;border-radius:100px;font-size:14px;font-weight:600;transition:var(--t);white-space:nowrap}
 .btn--peach{background:var(--blush);color:#1d1715}.btn--peach:hover{background:#fff;transform:translateY(-2px)}
 .btn--outline{border:1.5px solid rgba(255,255,255,.7);color:#fff}.btn--outline:hover{background:rgba(255,255,255,.12)}
@@ -78,8 +70,7 @@ img,video{max-width:100%}img{display:block}a{color:inherit;text-decoration:none}
 .strip__arrow--l{left:10px}.strip__arrow--r{right:10px}
 .strip__arrow[hidden]{display:none}
 /* SEASONAL — forest */
-.season{background:linear-gradient(180deg,#8fb5a8,#7ba898);color:#fff;padding:56px 0}
-.season__eyebrow{color:#12332b}
+.season{background:var(--forest);color:#fff;padding:56px 0}
 .season__grid{display:grid;grid-template-columns:300px 1fr 340px;gap:26px;align-items:start}
 .season__eyebrow{font-size:10px;letter-spacing:3px;color:var(--blush);font-weight:700}
 .season__title{font-family:'Playfair Display',serif;font-size:clamp(34px,4vw,54px);line-height:1.02;margin:10px 0 12px}
@@ -135,8 +126,6 @@ img,video{max-width:100%}img{display:block}a{color:inherit;text-decoration:none}
 <a href="#" class="on">Home</a><a href="menu.html">Menu</a><a href="#story">Our Story</a><a href="#gallery">Gallery</a><a href="#visit">Locations</a><a href="#contact">Contact</a>
 </nav>
 <div class="hdr__cta">
-<form class="hdr__search" onsubmit="return dishSearch(event)"><input id="hdrQ" type="search" placeholder="Search dishes…" aria-label="Search dishes"></form>
-<a class="callbtn" href="tel:+917738314007" aria-label="Call now">✆</a>
 <a href="https://wa.me/917738314007?text=Hi!%20I%20want%20to%20reserve%20a%20table." target="_blank" rel="noopener" class="btn btn--peach" style="padding:11px 24px">Reserve a Table →</a>
 <button class="burger" id="burger" aria-label="Menu"><span></span><span></span></button>
 </div>
@@ -299,7 +288,6 @@ img,video{max-width:100%}img{display:block}a{color:inherit;text-decoration:none}
 var cur=0;var vids=[document.getElementById('hv0'),document.getElementById('hv1')];
 function show(i){cur=(i+2)%2;vids.forEach(function(v,k){v.classList.toggle('active',k===cur);if(k===cur){v.play&&v.play().catch(function(){});}else{v.pause&&v.pause();}});}
 setInterval(function(){show(cur+1)},9000);
-function dishSearch(e){e.preventDefault();var q=document.getElementById('hdrQ').value.trim();location.href='menu.html'+(q?'?q='+encodeURIComponent(q):'');return false}
 (function(){var bar=document.getElementById('stripBar'),l=document.getElementById('stripL'),r=document.getElementById('stripR');if(!bar)return;l.addEventListener('click',function(){bar.scrollBy({left:-360,behavior:'smooth'})});r.addEventListener('click',function(){bar.scrollBy({left:360,behavior:'smooth'})});function tog(){var over=bar.scrollWidth>bar.clientWidth+4;if(!over){l.hidden=r.hidden=true;return}l.hidden=bar.scrollLeft<=4;r.hidden=bar.scrollLeft>=bar.scrollWidth-bar.clientWidth-4}bar.addEventListener('scroll',tog,{passive:true});window.addEventListener('resize',tog);tog();})();
 document.getElementById('burger').addEventListener('click',function(){document.getElementById('mmenu').classList.add('open')});
 document.getElementById('mclose').addEventListener('click',function(){document.getElementById('mmenu').classList.remove('open')});
